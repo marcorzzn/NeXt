@@ -4,37 +4,65 @@
     <meta charset="UTF-8">
     <title>NeXt Editor</title>
     <style>
-        /* Layout Generale */
-        body { margin: 0; display: flex; height: 100vh; font-family: sans-serif; overflow: hidden; }
-        
-        /* Colonna Sinistra (Editor) */
-        .editor-container { 
-            width: 50%; 
+        /* --- LAYOUT GENERALE --- */
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; 
+            padding: 0;
             display: flex; 
-            flex-direction: column; 
-            border-right: 1px solid #ccc; 
-            background: #1e1e1e; 
+            flex-direction: column; /* Impila Header sopra, contenuto sotto */
+            height: 100vh; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            overflow: hidden; 
+            background-color: #1e1e1e; /* Sfondo scuro per evitare flash bianchi */
         }
         
-        /* Header */
+        /* --- HEADER FULL WIDTH --- */
         .header { 
-            background: #007acc; 
-            color: white; 
-            padding: 10px 20px; 
-            font-weight: bold; 
+            height: 50px;
+            width: 100%;
+            background: #252526; /* Grigio scuro VS Code style */
+            border-bottom: 1px solid #333;
+            color: #cccccc; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 0 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .brand {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            color: #ffffff;
         }
         
-        /* Area di Testo */
+        /* --- AREA PRINCIPALE (EDITOR + PREVIEW) --- */
+        .main-container {
+            display: flex;
+            flex: 1; /* Occupa tutto lo spazio rimanente sotto l'header */
+            height: calc(100vh - 50px);
+        }
+
+        /* --- COLONNA SINISTRA (EDITOR) --- */
+        .editor-wrapper { 
+            width: 50%; 
+            height: 100%;
+            display: flex; 
+            flex-direction: column; 
+            border-right: 1px solid #333; 
+            background: #1e1e1e; 
+        }
+        
         textarea { 
-            flex: 1; 
+            width: 100%;
+            height: 100%;
             padding: 20px; 
-            font-family: 'Consolas', 'Monaco', monospace; 
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace; 
             font-size: 14px; 
-            line-height: 1.5;
+            line-height: 1.6;
             border: none; 
             resize: none; 
             background: #1e1e1e; 
@@ -42,7 +70,12 @@
             outline: none; 
         }
 
-        /* Colonna Destra (Anteprima) */
+        /* Scrollbar scura personalizzata */
+        textarea::-webkit-scrollbar { width: 10px; }
+        textarea::-webkit-scrollbar-track { background: #1e1e1e; }
+        textarea::-webkit-scrollbar-thumb { background: #424242; border-radius: 5px; }
+
+        /* --- COLONNA DESTRA (ANTEPRIMA) --- */
         iframe { 
             width: 50%; 
             height: 100%; 
@@ -50,34 +83,54 @@
             background: white; 
         }
         
-        /* Bottoni */
-        .btn-group { display: flex; gap: 10px; }
+        /* --- BOTTONI ARMONIOSI --- */
+        .btn-group { display: flex; gap: 12px; }
+        
         button { 
             border: none; 
-            padding: 8px 15px; 
+            padding: 6px 14px; 
             cursor: pointer; 
             border-radius: 4px; 
-            font-weight: bold; 
             font-size: 13px; 
-            transition: opacity 0.2s;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
-        .btn-update { background: white; color: #007acc; }
-        .btn-pdf { background: #e74c3c; color: white; } /* Rosso PDF */
-        button:hover { opacity: 0.9; }
+
+        /* Bottone Aggiorna: Blu scuro elegante */
+        .btn-update { 
+            background: #0e639c; 
+            color: white; 
+        }
+        .btn-update:hover { background: #1177bb; }
+
+        /* Bottone PDF: Grigio chiaro con testo scuro (o accento diverso) */
+        .btn-pdf { 
+            background: #3c3c3c; 
+            color: #e0e0e0; 
+            border: 1px solid #555;
+        }
+        .btn-pdf:hover { 
+            background: #4a4a4a; 
+            color: #fff;
+            border-color: #666;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="editor-container">
-        <div class="header">
-            <span>NeXt Editor v1.0 🚀</span>
-            <div class="btn-group">
-                <button class="btn-update" onclick="update()">Aggiorna (CTRL+S)</button>
-                <button class="btn-pdf" onclick="downloadPDF()">📄 Scarica PDF</button>
-            </div>
+    <div class="header">
+        <div class="brand">NeXt Editor</div>
+        <div class="btn-group">
+            <button class="btn-update" onclick="update()">Aggiorna (CTRL+S)</button>
+            <button class="btn-pdf" onclick="downloadPDF()">Scarica PDF</button>
         </div>
+    </div>
+
+    <div class="main-container">
         
-        <textarea id="input" spellcheck="false">@title{Manuale NeXt}
+        <div class="editor-wrapper">
+            <textarea id="input" spellcheck="false" placeholder="Inizia a scrivere qui...">@title{Manuale NeXt}
 
 # Benvenuto in NeXt
 NeXt è un linguaggio semplice per creare documenti scientifici e professionali.
@@ -91,7 +144,7 @@ Usa i trattini per le liste:
 - Secondo punto
 
 ## 2. Matematica (LaTeX)
-NeXt supporta formule complesse tra i dollari:
+NeXt supporta formule complesse tra i dollari (puoi incollare da ChatGPT!):
 $ E = mc^2 $
 
 Oppure integrali e frazioni:
@@ -105,18 +158,17 @@ Crea tabelle usando le barre verticali:
 | $ | Matematica |
 | @title | Titolo Doc |
 </textarea>
-    </div>
+        </div>
 
-    <iframe id="preview" name="previewFrame"></iframe>
+        <iframe id="preview" name="previewFrame"></iframe>
+    </div>
 
     <script type="module">
         import init, { compile_next_to_html } from './pkg/next.js';
 
         async function run() {
-            // Avvia il motore Rust
             await init();
             
-            // Funzione di aggiornamento
             window.update = () => {
                 const text = document.getElementById('input').value;
                 const html = compile_next_to_html(text);
@@ -127,20 +179,17 @@ Crea tabelle usando le barre verticali:
                 doc.close();
             };
 
-            // Funzione per scaricare il PDF (stampa solo l'iframe)
             window.downloadPDF = () => {
                 const iframe = document.getElementById('preview');
                 iframe.contentWindow.focus();
                 iframe.contentWindow.print();
             };
 
-            // Aggiorna al primo avvio
+            // Primo render
             update();
 
-            // Aggiorna ogni volta che l'utente scrive
+            // Event Listeners
             document.getElementById('input').addEventListener('input', update);
-            
-            // Scorciatoia da tastiera: CTRL+S per aggiornare (opzionale)
             document.addEventListener('keydown', function(e) {
                 if ((e.ctrlKey || e.metaKey) && e.key === 's') {
                     e.preventDefault();
