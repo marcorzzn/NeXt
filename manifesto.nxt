@@ -1,20 +1,17 @@
 @title{Il Manifesto di NeXt}
 
-# Benvenuto nel Futuro
-Questo documento non è stato scritto in LaTeX. È stato scritto in **NeXt**.
-È un nuovo linguaggio progettato per la velocità e la bellezza.
+# Benvenuto in NeXt
+Questo documento dimostra la potenza del tuo nuovo compilatore.
+Non stiamo usando LaTeX. Stiamo usando **Rust**.
 
-## Le Funzionalità
-Ecco cosa rende NeXt speciale:
-- Sintassi minimale (simile al Markdown)
-- Rendering istantaneo
-- Design tipografico automatico
+## Funzionalità
+Ecco cosa può fare NeXt oggi:
+- Parsing ultra veloce
+- Liste automatiche
+- Formattazione tipografica intelligente
 
-@note{Questa è una nota intelligente. Non hai dovuto importare pacchetti per crearla.}
+@note{Questa è una nota generata automaticamente. Il design è pulito e moderno.}
 
-## Esempio di Codice
-NeXt ama gli sviluppatori:
-
-@code{fn main() { println!("Hello World"); }}
-
-Il futuro del typesetting inizia *oggi*.
+## Codice
+Supportiamo anche i blocchi di codice:
+@code{fn main() { println!("Hello NeXt!"); }}

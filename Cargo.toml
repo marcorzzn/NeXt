@@ -4,7 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Per leggere i comandi da terminale
 clap = { version = "4.4", features = ["derive"] }
-# Per gestire gli errori in modo elegante
 anyhow = "1.0"
