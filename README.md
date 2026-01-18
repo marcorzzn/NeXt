@@ -21,3 +21,26 @@ Scritto in **Rust** e compilato in **WebAssembly**, offre un ambiente di scrittu
 Inizia il documento definendo il titolo:
 ```text
 @title{Titolo del Documento}
+
+### 2. Testo e Stile
+Scrivi normalmente per i paragrafi.
+Usa gli asterischi per il **grassetto**.
+Usa i trattini per le liste:
+- Primo punto
+- Secondo punto
+
+### 3. Matematica (LaTeX)
+NeXt supporta formule complesse tra i dollari (puoi incollare da ChatGPT!):
+$ E = mc^2 $
+
+Integrali e frazioni:
+$ \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi} $
+
+### 4. Tabelle
+Crea tabelle usando le barre verticali:
+| Comando | Descrizione |
+| :--- | :--- |
+| ** | Grassetto |
+| $ | Matematica |
+| @title | Titolo Doc |
+
