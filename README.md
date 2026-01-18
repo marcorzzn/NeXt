@@ -29,7 +29,7 @@ Usa i trattini per le liste:
 - Secondo punto
 
 LaTeX
-NeXt supporta formule complesse tra i dollari (puoi incollare da ChatGPT!):
+NeXt supporta formule complesse tra i dollari:
 $ E = mc^2 $
 $ \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi} $
 
