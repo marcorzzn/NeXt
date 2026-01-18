@@ -1,0 +1,15 @@
+{
+  "name": "next",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "next_bg.wasm",
+    "next.js",
+    "next.d.ts"
+  ],
+  "main": "next.js",
+  "types": "next.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
