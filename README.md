@@ -1,6 +1,6 @@
 # NeXt Editor 🚀
 
-**NeXt** è un compilatore di documenti scientifici ultra-veloce che gira interamente nel browser.
+**NeXt** è un compilatore di documenti scientifici che gira interamente nel browser.
 Scritto in **Rust** e compilato in **WebAssembly**, offre un ambiente di scrittura sicuro, immediato e privo di latenza.
 
 > **Zero Installazione. Zero Cloud. 100% Privacy.**
