@@ -1,17 +1,22 @@
-@title{Il Manifesto di NeXt}
+@title{NeXt v1.3: Feature Complete}
 
-# Benvenuto in NeXt
-Questo documento dimostra la potenza del tuo nuovo compilatore.
-Non stiamo usando LaTeX. Stiamo usando **Rust**.
+# Il Compilatore Definitivo
+NeXt è ora in grado di gestire documenti complessi.
 
-## Funzionalità
-Ecco cosa può fare NeXt oggi:
-- Parsing ultra veloce
-- Liste automatiche
-- Formattazione tipografica intelligente
+## 1. Dati Strutturati (Tabelle)
+Ecco una tabella creata semplicemente usando il simbolo "pipe" (|).
+La prima riga diventa automaticamente l'intestazione scura:
 
-@note{Questa è una nota generata automaticamente. Il design è pulito e moderno.}
+| Prodotto | Prezzo | Quantità |
+| NeXt Compiler | Gratis | Infinito |
+| Licenza LaTeX | Costosa | 1 |
+| Felicità Dev | Alta | 100% |
 
-## Codice
-Supportiamo anche i blocchi di codice:
-@code{fn main() { println!("Hello NeXt!"); }}
+## 2. Analisi Matematica
+Il calcolo dei costi è basato sulla formula: $Cost = \sum_{i=0}^{n} x_i^2$
+
+## 3. Risultato Grafico
+Ed ecco il risultato finale del nostro lavoro:
+@image{https://picsum.photos/800/200}
+
+@note{Complimenti! Hai costruito un sistema di typesetting completo da zero in meno di un'ora.}
